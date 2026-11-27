@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/* Brand tokens. Change the colours here and the whole site follows. */
+@theme {
+  --color-ink: #10252f;
+  --color-brand: #0f5c63;
+  --color-brand-dark: #0b474d;
+  --color-accent: #e39b1b;
+  --color-paper: #f4f7f6;
+  --color-band: #e5eeed;
+  --color-line: #d6e0e0;
+  --color-muted: #51656e;
+}
+
+/* Fonts are self-hosted (app/fonts) and wired up in app/layout.tsx. */
+@theme inline {
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), ui-serif, Georgia, serif;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem; /* keeps anchor targets clear of the sticky header */
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
